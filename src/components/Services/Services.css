@@ -758,6 +758,14 @@
     font-size: 13px;
   }
 
+  .services__card:hover .services__card-bg {
+    transform: none !important;
+  }
+
+  .services__card-bg {
+    transition: none !important;
+  }
+
   .services__info {
     gap: 10px;
   }
