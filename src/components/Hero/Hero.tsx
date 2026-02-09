@@ -87,6 +87,7 @@ export default function Hero({
               src="/images/tild6661-3434-4461-a531-623331306564__arrow_1.svg" 
               alt="" 
               className="hero__scroll-img"
+              loading="lazy"
             />
           </button>
           {showLogos && (
@@ -94,12 +95,14 @@ export default function Hero({
               <img 
                 src="/images/tild3663-3539-4861-b630-656133663233__bimco2016_logo-membe.svg" 
                 alt="BIMCO" 
-                className="hero__logo-bimco" 
+                className="hero__logo-bimco"
+                loading="lazy"
               />
               <img 
                 src="/images/tild6235-3665-4166-b039-383537363737__bvcer_sansqr-iso_900.svg" 
                 alt="ISO 9001" 
-                className="hero__logo-iso" 
+                className="hero__logo-iso"
+                loading="lazy"
               />
             </div>
           )}

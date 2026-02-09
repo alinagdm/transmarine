@@ -41,6 +41,7 @@ export default function PortInformationPage() {
                 src="/images/STK-2.jpg" 
                 alt="Порт Калининград" 
                 className="port-information__image-placeholder"
+                loading="lazy"
               />
             </div>
             <div className="port-information__accordions">

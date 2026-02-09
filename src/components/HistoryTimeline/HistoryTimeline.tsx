@@ -27,7 +27,7 @@ export default function HistoryTimeline({ year, text, images }: HistoryTimelineP
               className="history-timeline__image-wrapper"
             >
               {image.src && !image.src.includes('placehold.co') ? (
-                <img src={image.src} alt="" className="history-timeline__image" />
+                <img src={image.src} alt="" className="history-timeline__image" loading="lazy" />
               ) : (
                 <div className="history-timeline__image--placeholder" />
               )}

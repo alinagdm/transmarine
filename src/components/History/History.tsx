@@ -22,6 +22,7 @@ export default function History() {
           <img 
             src="/images/Линия.JPG" 
             alt="" 
+            loading="lazy"
           />
         </div>
       </div>

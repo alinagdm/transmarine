@@ -8,7 +8,8 @@ export default function Footer() {
         <img 
           src="/images/tild3734-6161-4531-b761-633263393233__ec9008f7260ce3d7b9b4.png" 
           alt="" 
-          className="footer__bg" 
+          className="footer__bg"
+          loading="lazy"
         />
       </div>
       
@@ -18,7 +19,8 @@ export default function Footer() {
         <img 
           src="/images/tild3734-3037-4431-b833-306630373132__mask_group.svg" 
           alt="TransMarine" 
-          className="footer__logo" 
+          className="footer__logo"
+          loading="lazy"
         />
         
         {/* Контакты */}
@@ -63,12 +65,14 @@ export default function Footer() {
           <img 
             src="/images/tild3663-3539-4861-b630-656133663233__bimco2016_logo-membe.svg" 
             alt="BIMCO" 
-            className="footer__logo-bimco" 
+            className="footer__logo-bimco"
+            loading="lazy"
           />
           <img 
             src="/images/tild6235-3665-4166-b039-383537363737__bvcer_sansqr-iso_900.svg" 
             alt="ISO 9001" 
-            className="footer__logo-iso" 
+            className="footer__logo-iso"
+            loading="lazy"
           />
         </div>
       </div>

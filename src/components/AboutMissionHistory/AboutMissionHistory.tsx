@@ -29,7 +29,8 @@ export default function AboutMissionHistory() {
           <div className="about-mission-history__image">
             <img 
               src="/images/суда.JPG" 
-              alt="Судно" 
+              alt="Судно"
+              loading="lazy"
             />
           </div>
 

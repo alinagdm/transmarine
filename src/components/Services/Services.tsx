@@ -54,7 +54,7 @@ export default function Services() {
       <div className="services__container">
         <div className="services__slider">
           <button className="services__arrow services__arrow--left" onClick={handlePrev}>
-            <img src="/images/tild6137-6430-4430-b162-333139343535__arrow.svg" alt="Назад" />
+            <img src="/images/tild6137-6430-4430-b162-333139343535__arrow.svg" alt="Назад" loading="lazy" />
           </button>
 
           <div className="services__slides">
@@ -96,7 +96,7 @@ export default function Services() {
           </div>
 
           <button className="services__arrow services__arrow--right" onClick={handleNext}>
-            <img src="/images/tild3133-3334-4433-a465-356164326434__arrow-left.svg" alt="Вперед" />
+            <img src="/images/tild3133-3334-4433-a465-356164326434__arrow-left.svg" alt="Вперед" loading="lazy" />
           </button>
         </div>
 
@@ -129,7 +129,8 @@ export default function Services() {
             <img 
               src="/images/tild3237-3139-4530-b465-626661383234__vector_2.svg" 
               alt="" 
-              className="services__info-arrow" 
+              className="services__info-arrow"
+              loading="lazy"
             />
           </Link>
 
@@ -148,7 +149,8 @@ export default function Services() {
             <img 
               src="/images/tild3931-3333-4738-a136-646236393230__vector_2_1.svg" 
               alt="" 
-              className="services__info-arrow" 
+              className="services__info-arrow"
+              loading="lazy"
             />
           </button>
         </div>
