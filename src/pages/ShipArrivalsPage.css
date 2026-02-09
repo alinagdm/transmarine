@@ -1,0 +1,290 @@
+.ship-arrivals {
+  background: white;
+  width: 100%;
+  padding: 60px 0 100px;
+}
+
+.ship-arrivals__container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 120px;
+}
+
+.ship-arrivals__header {
+  margin-bottom: 40px;
+}
+
+.ship-arrivals__title {
+  font-family: 'Inter', sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #111;
+  margin: 0 0 16px 0;
+}
+
+.ship-arrivals__description {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+.ship-arrivals__filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.ship-arrivals__filter {
+  padding: 10px 24px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ship-arrivals__filter:hover {
+  background: #e8e8e8;
+  border-color: #136bdf;
+}
+
+.ship-arrivals__filter--active {
+  background: #136bdf;
+  border-color: #136bdf;
+  color: white;
+}
+
+.ship-arrivals__filter--active:hover {
+  background: #0d5bc4;
+  border-color: #0d5bc4;
+}
+
+.ship-arrivals__loading,
+.ship-arrivals__error,
+.ship-arrivals__empty {
+  text-align: center;
+  padding: 60px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: #666;
+}
+
+.ship-arrivals__retry {
+  margin-top: 16px;
+  padding: 10px 24px;
+  background: #136bdf;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.ship-arrivals__retry:hover {
+  background: #0d5bc4;
+}
+
+.ship-arrivals__table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ship-arrivals__table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+.ship-arrivals__table thead {
+  background: #136bdf;
+  color: white;
+}
+
+.ship-arrivals__table th {
+  padding: 16px;
+  text-align: left;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.ship-arrivals__table tbody tr {
+  border-bottom: 1px solid #e8e8e8;
+  transition: background 0.2s ease;
+}
+
+.ship-arrivals__table tbody tr:hover {
+  background: #f9f9f9;
+}
+
+.ship-arrivals__table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.ship-arrivals__table td {
+  padding: 16px;
+  color: #111;
+}
+
+.ship-arrivals__ship-name {
+  font-weight: 500;
+  color: #136bdf;
+}
+
+.ship-arrivals__status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.ship-arrivals__status--expected {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.ship-arrivals__status--arrived {
+  background: #d4edda;
+  color: #155724;
+}
+
+.ship-arrivals__status--departed {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+.ship-arrivals__info {
+  margin-top: 40px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border-left: 4px solid #136bdf;
+}
+
+.ship-arrivals__info-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+.ship-arrivals__link {
+  color: #136bdf;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.ship-arrivals__link:hover {
+  color: #0d5bc4;
+  text-decoration: underline;
+}
+
+/* Адаптив для планшетов */
+@media (max-width: 1024px) {
+  .ship-arrivals {
+    padding: 40px 0 80px;
+  }
+
+  .ship-arrivals__container {
+    padding: 0 60px;
+  }
+
+  .ship-arrivals__title {
+    font-size: 32px;
+  }
+
+  .ship-arrivals__table {
+    font-size: 13px;
+  }
+
+  .ship-arrivals__table th,
+  .ship-arrivals__table td {
+    padding: 12px;
+  }
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+  .ship-arrivals {
+    padding: 30px 0 60px;
+  }
+
+  .ship-arrivals__container {
+    padding: 0 20px;
+  }
+
+  .ship-arrivals__title {
+    font-size: 28px;
+  }
+
+  .ship-arrivals__description {
+    font-size: 16px;
+  }
+
+  .ship-arrivals__filters {
+    gap: 8px;
+  }
+
+  .ship-arrivals__filter {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .ship-arrivals__table {
+    font-size: 12px;
+  }
+
+  .ship-arrivals__table th,
+  .ship-arrivals__table td {
+    padding: 10px 8px;
+  }
+
+  .ship-arrivals__table th {
+    font-size: 11px;
+  }
+
+  .ship-arrivals__ship-name {
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 480px) {
+  .ship-arrivals__container {
+    padding: 0 16px;
+  }
+
+  .ship-arrivals__title {
+    font-size: 24px;
+  }
+
+  .ship-arrivals__table-wrapper {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ship-arrivals__table {
+    min-width: 800px;
+  }
+}

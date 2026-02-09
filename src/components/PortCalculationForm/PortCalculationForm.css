@@ -1,0 +1,429 @@
+.port-calculation-form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.port-calculation-form--open {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.port-calculation-form__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.port-calculation-form__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 90%;
+  max-width: 698px;
+  max-height: 90vh;
+  background: white;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.port-calculation-form--open .port-calculation-form__content {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.port-calculation-form__close {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  width: 22px;
+  height: 22px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+}
+
+.port-calculation-form__close:hover {
+  opacity: 0.7;
+}
+
+.port-calculation-form__close svg {
+  width: 22px;
+  height: 22px;
+}
+
+.port-calculation-form__header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.port-calculation-form__title {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #111111;
+  margin: 0 0 20px 0;
+}
+
+.port-calculation-form__description {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #111111;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.port-calculation-form__progress {
+  margin-bottom: 32px;
+}
+
+.port-calculation-form__progress-bar {
+  width: 100%;
+  height: 4px;
+  background: #e1ecf2;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.port-calculation-form__progress-fill {
+  height: 100%;
+  background: #136bdf;
+  transition: width 0.3s ease;
+}
+
+.port-calculation-form__progress-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(17, 17, 17, 0.6);
+  display: block;
+  text-align: center;
+}
+
+.port-calculation-form__form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.port-calculation-form__step {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.port-calculation-form__step-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #111111;
+  margin-bottom: 10px;
+}
+
+.port-calculation-form__options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.port-calculation-form__option {
+  width: 100%;
+  padding: 18px 24px;
+  background: transparent;
+  border: 1px solid #111111;
+  border-radius: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #111111;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.port-calculation-form__option:hover {
+  background: rgba(19, 107, 223, 0.05);
+  border-color: #136bdf;
+}
+
+.port-calculation-form__option--active {
+  background: rgba(19, 107, 223, 0.1);
+  border-color: #136bdf;
+  color: #136bdf;
+}
+
+.port-calculation-form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.port-calculation-form__field {
+  width: 100%;
+}
+
+.port-calculation-form__input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 54px;
+  padding: 18px 24px;
+  border: 1px solid #111111;
+  outline: 1px solid #111111;
+  outline-offset: -1px;
+}
+
+.port-calculation-form__input-wrapper svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.port-calculation-form__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #111111;
+}
+
+.port-calculation-form__input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.port-calculation-form__consent {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.port-calculation-form__checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #111111;
+  cursor: pointer;
+}
+
+.port-calculation-form__checkbox {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #111111;
+  cursor: pointer;
+  appearance: none;
+  position: relative;
+  flex-shrink: 0;
+  background: transparent;
+}
+
+.port-calculation-form__checkbox:checked {
+  background: #111111;
+}
+
+.port-calculation-form__checkbox:checked::before {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.port-calculation-form__actions {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.port-calculation-form__btn {
+  padding: 19px 42px;
+  border-radius: 30px;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  min-width: 150px;
+}
+
+.port-calculation-form__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.port-calculation-form__btn--primary {
+  background: #136bdf;
+  color: white;
+}
+
+.port-calculation-form__btn--primary:hover:not(:disabled) {
+  background: #0f5bc0;
+}
+
+.port-calculation-form__btn--secondary {
+  background: transparent;
+  border: 1px solid #111111;
+  color: #111111;
+}
+
+.port-calculation-form__btn--secondary:hover {
+  background: rgba(17, 17, 17, 0.05);
+}
+
+/* Адаптив для планшетов */
+@media (max-width: 1024px) {
+  .port-calculation-form__content {
+    max-width: 90%;
+    padding: 30px;
+  }
+
+  .port-calculation-form__title {
+    font-size: 22px;
+  }
+
+  .port-calculation-form__description {
+    font-size: 16px;
+  }
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+  .port-calculation-form__content {
+    max-width: 95%;
+    padding: 24px 20px;
+    max-height: 95vh;
+  }
+
+  .port-calculation-form__close {
+    top: 20px;
+    right: 20px;
+  }
+
+  .port-calculation-form__header {
+    margin-bottom: 24px;
+  }
+
+  .port-calculation-form__title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .port-calculation-form__description {
+    font-size: 15px;
+  }
+
+  .port-calculation-form__form {
+    gap: 24px;
+  }
+
+  .port-calculation-form__step {
+    gap: 16px;
+  }
+
+  .port-calculation-form__step-label {
+    font-size: 16px;
+  }
+
+  .port-calculation-form__option {
+    padding: 16px 20px;
+    font-size: 16px;
+  }
+
+  .port-calculation-form__input-wrapper {
+    height: 50px;
+    padding: 16px 20px;
+  }
+
+  .port-calculation-form__input {
+    font-size: 16px;
+  }
+
+  .port-calculation-form__checkbox-label {
+    font-size: 16px;
+    gap: 16px;
+  }
+
+  .port-calculation-form__actions {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+
+  .port-calculation-form__btn {
+    width: 100%;
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .port-calculation-form__content {
+    padding: 20px 16px;
+  }
+
+  .port-calculation-form__title {
+    font-size: 18px;
+  }
+
+  .port-calculation-form__description {
+    font-size: 14px;
+  }
+
+  .port-calculation-form__option {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+
+  .port-calculation-form__input-wrapper {
+    height: 48px;
+    padding: 14px 16px;
+  }
+
+  .port-calculation-form__input {
+    font-size: 15px;
+  }
+
+  .port-calculation-form__checkbox-label {
+    font-size: 15px;
+  }
+
+  .port-calculation-form__btn {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+}
