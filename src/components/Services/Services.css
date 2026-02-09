@@ -161,6 +161,29 @@
   opacity: 0.3;
 }
 
+/* На мобилке контент всегда виден и без анимаций */
+@media (max-width: 768px) {
+  .services__card-content {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .services__card--left .services__card-content,
+  .services__card--right .services__card-content {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .services__card:hover .services__card-bg {
+    transform: none !important;
+  }
+
+  .services__card-bg {
+    transition: none !important;
+  }
+}
+
 .services__card-title {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
@@ -523,37 +546,70 @@
   .services__slider {
     position: relative;
     top: auto;
-    height: 400px;
+    height: 420px;
     margin-bottom: 40px;
-    overflow: hidden;
-    touch-action: pan-y;
+    overflow: visible;
+    touch-action: pan-x;
+  }
+
+  .services__slides {
+    perspective: none;
+    perspective-origin: unset;
   }
 
   .services__card {
-    padding: 20px 25px;
+    padding: 30px 20px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    will-change: transform, opacity;
+  }
+
+  .services__card:hover {
+    transform: translate(-50%, -50%) scale(1) !important;
   }
 
   .services__card--left {
-    left: auto;
-    top: auto;
-    width: 240px;
-    height: 360px;
-    transform: translateX(-280px) translateZ(-200px) scale(0.75) rotateY(15deg);
+    left: 50%;
+    top: 50%;
+    transform: translate(-150%, -50%) scale(0.85);
+    width: 260px;
+    height: 380px;
+    opacity: 0.6;
+    z-index: 1;
+    filter: none;
+  }
+
+  .services__card--left:hover {
+    transform: translate(-150%, -50%) scale(0.85) !important;
   }
 
   .services__card--center {
-    left: auto;
-    top: auto;
-    width: 280px;
-    height: 400px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 300px;
+    height: 420px;
+    opacity: 1;
+    z-index: 3;
+    filter: none;
+  }
+
+  .services__card--center:hover {
+    transform: translate(-50%, -50%) scale(1) !important;
   }
 
   .services__card--right {
-    left: auto;
-    top: auto;
-    width: 240px;
-    height: 360px;
-    transform: translateX(280px) translateZ(-200px) scale(0.75) rotateY(-15deg);
+    left: 50%;
+    top: 50%;
+    transform: translate(50%, -50%) scale(0.85);
+    width: 260px;
+    height: 380px;
+    opacity: 0.6;
+    z-index: 1;
+    filter: none;
+  }
+
+  .services__card--right:hover {
+    transform: translate(50%, -50%) scale(0.85) !important;
   }
 
   .services__dots {
@@ -591,16 +647,30 @@
   }
 
   .services__card-title {
-    font-size: 20px;
-    margin-bottom: 15px;
+    font-size: 22px;
+    margin-bottom: 20px;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    padding: 0 10px;
+    padding: 0;
+    line-height: 1.3;
+    text-align: center;
   }
 
   .services__card-text {
     font-size: 14px;
-    line-height: 1.4;
+    line-height: 1.5;
+  }
+
+  .services__card-content {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .services__card--left .services__card-content,
+  .services__card--right .services__card-content {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   .services__info {
@@ -651,35 +721,41 @@
   }
 
   .services__slider {
-    height: 350px;
+    height: 380px;
     margin-bottom: 30px;
-    overflow: hidden;
-    touch-action: pan-y;
+    overflow: visible;
+    touch-action: pan-x;
+  }
+
+  .services__card {
+    padding: 25px 18px;
   }
 
   .services__card--left {
-    width: 200px;
-    height: 300px;
-    transform: translateX(-240px) translateZ(-150px) scale(0.7) rotateY(18deg);
+    width: 220px;
+    height: 340px;
+    transform: translate(-130%, -50%) scale(0.8);
   }
 
   .services__card--center {
-    width: 240px;
-    height: 350px;
+    width: 260px;
+    height: 380px;
+    transform: translate(-50%, -50%) scale(1);
   }
 
   .services__card--right {
-    width: 200px;
-    height: 300px;
-    transform: translateX(240px) translateZ(-150px) scale(0.7) rotateY(-18deg);
+    width: 220px;
+    height: 340px;
+    transform: translate(30%, -50%) scale(0.8);
   }
 
   .services__card-title {
-    font-size: 18px;
+    font-size: 20px;
+    margin-bottom: 18px;
   }
 
   .services__card-text {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .services__info {
