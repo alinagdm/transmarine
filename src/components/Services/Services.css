@@ -558,7 +558,7 @@
   }
 
   .services__card {
-    padding: 30px 20px;
+    padding: 40px 30px;
     transition: transform 0.3s ease, opacity 0.3s ease;
     will-change: transform, opacity;
   }
@@ -662,13 +662,9 @@
   }
 
   .services__card-content {
-    opacity: 0;
+    opacity: 1 !important;
     transform: none !important;
-    transition: opacity 0.4s ease 0.5s !important;
-  }
-
-  .services__card--center .services__card-content {
-    opacity: 1;
+    transition: none !important;
   }
 
   .services__card--left .services__card-content,
@@ -732,7 +728,7 @@
   }
 
   .services__card {
-    padding: 25px 18px;
+    padding: 35px 25px;
   }
 
   .services__card--left {
@@ -763,12 +759,8 @@
   }
 
   .services__card-content {
-    opacity: 0;
-    transition: opacity 0.4s ease 0.5s !important;
-  }
-
-  .services__card--center .services__card-content {
-    opacity: 1;
+    opacity: 1 !important;
+    transition: none !important;
   }
 
   .services__card:hover .services__card-bg {
