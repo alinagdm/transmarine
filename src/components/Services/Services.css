@@ -647,7 +647,7 @@
   }
 
   .services__card-title {
-    font-size: 22px;
+    font-size: 18px;
     margin-bottom: 20px;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -657,14 +657,18 @@
   }
 
   .services__card-text {
-    font-size: 14px;
+    font-size: 10px;
     line-height: 1.5;
   }
 
   .services__card-content {
-    opacity: 1 !important;
+    opacity: 0;
     transform: none !important;
-    transition: none !important;
+    transition: opacity 0.4s ease 0.5s !important;
+  }
+
+  .services__card--center .services__card-content {
+    opacity: 1;
   }
 
   .services__card--left .services__card-content,
@@ -750,12 +754,21 @@
   }
 
   .services__card-title {
-    font-size: 20px;
+    font-size: 16px;
     margin-bottom: 18px;
   }
 
   .services__card-text {
-    font-size: 13px;
+    font-size: 9px;
+  }
+
+  .services__card-content {
+    opacity: 0;
+    transition: opacity 0.4s ease 0.5s !important;
+  }
+
+  .services__card--center .services__card-content {
+    opacity: 1;
   }
 
   .services__card:hover .services__card-bg {
