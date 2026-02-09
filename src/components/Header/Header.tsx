@@ -1,16 +1,83 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Header.css';
 import { usePortCalculation } from '../../contexts/PortCalculationContext';
 
+// База данных страниц для поиска
+const pagesData = [
+  {
+    path: '/',
+    title: 'Главная',
+    keywords: ['главная', 'transmarine', 'трансмарин', 'линейные агенты', 'трамповые агенты', 'экспедиторы', '1996', 'портовое агентство', 'логистика']
+  },
+  {
+    path: '/about',
+    title: 'О нас',
+    keywords: ['о нас', 'компания', 'миссия', 'история', '1992', 'yanmarine', 'моряки', 'береговая карьера', 'трансмарин', 'команда']
+  },
+  {
+    path: '/services',
+    title: 'Услуги',
+    keywords: ['услуги', 'экспедирование', 'судоходная линия', 'портовое агентство', 'калининград', 'санкт-петербург', 'киль']
+  },
+  {
+    path: '/services/1',
+    title: 'Экспедирование',
+    keywords: ['экспедирование', 'экспедитор', 'груз', 'логистика', 'таможня', 'документы', 'доставка', 'страхование']
+  },
+  {
+    path: '/services/2',
+    title: 'Судоходная линия Санкт-Петербург / Калининград',
+    keywords: ['судоходная линия', 'санкт-петербург', 'калининград', 'киль', 'регулярная линия', 'контейнеры', 'бумага']
+  },
+  {
+    path: '/services/3',
+    title: 'Портовое агентство',
+    keywords: ['портовое агентство', 'порт', 'судно', 'агентирование', 'калининградский порт', 'кмтп']
+  },
+  {
+    path: '/people',
+    title: 'Люди',
+    keywords: ['люди', 'команда', 'специалисты', 'сотрудники', 'эксперты']
+  },
+  {
+    path: '/history',
+    title: 'История',
+    keywords: ['история', '1992', '1993', '1995', '1996', 'yanmarine', 'академик артоболевский', 'газетная бумага', 'киль', 'обучение', 'lloyd', 'bimco']
+  },
+  {
+    path: '/contacts',
+    title: 'Контакты',
+    keywords: ['контакты', 'адрес', 'телефон', 'почта', 'калининград', 'портовая', 'office@transmarine.ru', '632-256', '632-120']
+  },
+  {
+    path: '/port-information',
+    title: 'Информация о Калининградском порте',
+    keywords: ['порт', 'калининградский порт', 'прибытие', 'ограничения', 'документы', 'таможня', 'поставки', 'лихтеры', 'лед', 'оспс', 'оборудование', 'пилотирование', 'коммуникации']
+  },
+  {
+    path: '/schedule',
+    title: 'Расписание линий',
+    keywords: ['расписание', 'линия', 'рейс', 'отправление', 'прибытие', 'судно', 'судозаход']
+  },
+  {
+    path: '/ship-arrivals',
+    title: 'Судозаходы',
+    keywords: ['судозаходы', 'судно', 'прибытие', 'отправление', 'ожидается', 'прибыло', 'отправилось', 'судна']
+  }
+];
+
 export default function Header() {
   const location = useLocation();
+  const navigate = useNavigate();
   const isHistoryPage = location.pathname === '/history';
   const { openForm } = usePortCalculation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<Array<{path: string; title: string; matches: number}>>([]);
+  const [foundOnCurrentPage, setFoundOnCurrentPage] = useState(false);
   const [isMobileServicesSubmenuOpen, setIsMobileServicesSubmenuOpen] = useState(false);
   const [isMobileView, setIsMobileView] = useState(false);
   const menuStateRef = useRef({ isMenuOpen: false, isSearchOpen: false });
@@ -110,58 +177,132 @@ export default function Header() {
     setSearchQuery('');
   };
 
+  // Поиск по страницам и проверка текущей страницы
+  useEffect(() => {
+    if (searchQuery.trim().length >= 2) {
+      const searchText = searchQuery.toLowerCase().trim();
+      const words = searchText.split(/\s+/).filter(word => word.length > 1);
+      
+      // Проверка на текущей странице
+      const elements = document.querySelectorAll('h1, h2, h3, h4, p, a, span, li, td, th, .hero__title, .services__card-title');
+      let found = false;
+      elements.forEach((el) => {
+        if (el.textContent?.toLowerCase().includes(searchText)) {
+          found = true;
+        }
+      });
+      setFoundOnCurrentPage(found);
+      
+      // Поиск по другим страницам
+      const results = pagesData
+        .filter(page => page.path !== location.pathname) // Исключаем текущую страницу
+        .map(page => {
+          let matches = 0;
+          
+          // Поиск в ключевых словах
+          page.keywords.forEach(keyword => {
+            if (keyword.includes(searchText)) {
+              matches += 3; // Точное совпадение
+            } else if (words.some(word => keyword.includes(word))) {
+              matches += 1; // Частичное совпадение
+            }
+          });
+          
+          // Поиск в названии страницы
+          if (page.title.toLowerCase().includes(searchText)) {
+            matches += 5;
+          } else if (words.some(word => page.title.toLowerCase().includes(word))) {
+            matches += 2;
+          }
+          
+          return { ...page, matches };
+        })
+        .filter(page => page.matches > 0)
+        .sort((a, b) => b.matches - a.matches)
+        .slice(0, 5); // Топ 5 результатов
+      
+      setSearchResults(results);
+    } else {
+      setSearchResults([]);
+      setFoundOnCurrentPage(false);
+    }
+  }, [searchQuery, location.pathname]);
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       const searchText = searchQuery.toLowerCase().trim();
-      const words = searchText.split(/\s+/).filter(word => word.length > 2);
       
-      // Поиск по тексту на странице
+      // Сначала проверяем, есть ли контент на текущей странице
       const elements = document.querySelectorAll('h1, h2, h3, h4, p, a, span, li, td, th, .hero__title, .services__card-title');
-      
-      let found = false;
+      let foundOnCurrentPage = false;
       let bestMatch: Element | null = null;
       let bestScore = 0;
       
       elements.forEach((el) => {
         const text = el.textContent?.toLowerCase() || '';
-        if (!text) return;
-        
-        // Проверяем точное совпадение
         if (text.includes(searchText)) {
           const score = text.indexOf(searchText);
           if (score >= 0 && (!bestMatch || score < bestScore)) {
             bestMatch = el;
             bestScore = score;
-            found = true;
-          }
-        }
-        
-        // Проверяем по словам
-        if (words.length > 0) {
-          const matchCount = words.filter(word => text.includes(word)).length;
-          if (matchCount > 0 && matchCount / words.length >= 0.5) {
-            if (!bestMatch || matchCount > bestScore) {
-              bestMatch = el;
-              bestScore = matchCount;
-              found = true;
-            }
+            foundOnCurrentPage = true;
           }
         }
       });
       
-      if (found && bestMatch) {
+      if (foundOnCurrentPage && bestMatch) {
+        // Найдено на текущей странице - показываем
         const element = bestMatch as HTMLElement;
         element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        // Подсветка найденного текста
         element.style.backgroundColor = 'rgba(255, 255, 0, 0.3)';
         setTimeout(() => {
           element.style.backgroundColor = '';
         }, 2000);
+        closeSearch();
+      } else if (searchResults.length > 0) {
+        // Переходим на первую найденную страницу
+        navigate(searchResults[0].path);
+        closeSearch();
+        
+        // После перехода ищем текст на странице
+        setTimeout(() => {
+          const newElements = document.querySelectorAll('h1, h2, h3, h4, p, a, span, li, td, th, .hero__title, .services__card-title');
+          let newBestMatch: Element | null = null;
+          let newBestScore = 0;
+          
+          newElements.forEach((el) => {
+            const text = el.textContent?.toLowerCase() || '';
+            if (text.includes(searchText)) {
+              const score = text.indexOf(searchText);
+              if (score >= 0 && (!newBestMatch || score < newBestScore)) {
+                newBestMatch = el;
+                newBestScore = score;
+              }
+            }
+          });
+          
+          if (newBestMatch) {
+            const element = newBestMatch as HTMLElement;
+            setTimeout(() => {
+              element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              element.style.backgroundColor = 'rgba(255, 255, 0, 0.3)';
+              setTimeout(() => {
+                element.style.backgroundColor = '';
+              }, 2000);
+            }, 300);
+          }
+        }, 100);
       } else {
-        alert('Ничего не найдено');
+        alert('Ничего не найдено. Попробуйте другой запрос.');
       }
     }
+  };
+
+  const handleResultClick = (path: string) => {
+    navigate(path);
+    closeSearch();
+    setSearchQuery('');
   };
 
   const toggleMobileServicesSubmenu = (e: React.MouseEvent) => {
@@ -349,6 +490,53 @@ export default function Header() {
               Найти
             </button>
           </form>
+          
+          {/* Результаты поиска */}
+          {searchQuery.trim().length >= 2 && (
+            <>
+              {/* Проверка на текущей странице */}
+              {foundOnCurrentPage && (
+                <div className="search-popup__current-page-result">
+                  <div className="search-popup__results-title">Найдено на текущей странице:</div>
+                  <div className="search-popup__current-page-badge">
+                    ✓ Контент найден на этой странице
+                  </div>
+                </div>
+              )}
+              
+              {/* Результаты по другим страницам */}
+              {searchResults.length > 0 && (
+                <div className="search-popup__results">
+                  <div className="search-popup__results-title">
+                    {foundOnCurrentPage ? 'Также найдено на других страницах:' : 'Найдено на страницах:'}
+                  </div>
+                  {searchResults.map((result, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      className="search-popup__result-item"
+                      onClick={() => handleResultClick(result.path)}
+                    >
+                      <span className="search-popup__result-title">{result.title}</span>
+                      <span className="search-popup__result-path">{result.path}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+              
+              {searchResults.length === 0 && !foundOnCurrentPage && searchQuery.trim().length >= 2 && (
+                <div className="search-popup__no-results">
+                  Ничего не найдено. Попробуйте другой запрос.
+                </div>
+              )}
+            </>
+          )}
+          
+          {searchQuery.trim().length >= 2 && searchResults.length === 0 && (
+            <div className="search-popup__no-results">
+              Ничего не найдено. Попробуйте другой запрос.
+            </div>
+          )}
         </div>
       </div>
     </>
