@@ -550,6 +550,7 @@
     margin-bottom: 40px;
     overflow: visible;
     touch-action: pan-x;
+    padding: 0 20px;
   }
 
   .services__slides {
