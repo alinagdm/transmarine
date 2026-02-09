@@ -63,7 +63,7 @@
   .breadcrumbs__link,
   .breadcrumbs__separator,
   .breadcrumbs__current {
-    font-size: 11px;
+    font-size: 14px;
   }
 }
 
@@ -79,7 +79,7 @@
   .breadcrumbs__link,
   .breadcrumbs__separator,
   .breadcrumbs__current {
-    font-size: 10px;
+    font-size: 14px;
   }
 }
 

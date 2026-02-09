@@ -80,7 +80,7 @@ export default function Services() {
                     // Сейчас делаем переход на детальку для всех карточек
                   }}
                 >
-                  <img src={slide.image} alt="" className="services__card-bg" />
+                  <img src={slide.image} alt="" className="services__card-bg" loading="lazy" />
                   <div className="services__card-overlay" />
                   <div className="services__card-content">
                     <h3 className="services__card-title">{slide.title}</h3>

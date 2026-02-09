@@ -3,9 +3,11 @@
   height: 1012px;
   position: relative;
   width: 100%;
+  max-width: 100%;
   display: flex;
   align-items: center;
   animation: fadeInUp 0.6s ease-out;
+  overflow-x: hidden;
 }
 
 .services__container {
@@ -19,6 +21,9 @@
   position: relative;
   height: 586px;
   margin-bottom: 92px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .services__slides {
@@ -29,6 +34,8 @@
   justify-content: center;
   perspective: 2000px;
   perspective-origin: center center;
+  touch-action: pan-y;
+  overflow: hidden;
 }
 
 .services__card {
@@ -160,6 +167,10 @@
   margin: 0;
   transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
 }
 
 .services__card--center .services__card-title {
@@ -509,6 +520,8 @@
     top: auto;
     height: 400px;
     margin-bottom: 40px;
+    overflow: hidden;
+    touch-action: pan-y;
   }
 
   .services__card {
@@ -575,6 +588,9 @@
   .services__card-title {
     font-size: 20px;
     margin-bottom: 15px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding: 0 10px;
   }
 
   .services__card-text {
@@ -607,6 +623,7 @@
     width: 36px;
     height: 36px;
     flex-shrink: 0;
+    margin-right: 12px;
   }
 
   .services__info-text {
@@ -631,6 +648,8 @@
   .services__slider {
     height: 350px;
     margin-bottom: 30px;
+    overflow: hidden;
+    touch-action: pan-y;
   }
 
   .services__card--left {
@@ -670,6 +689,7 @@
   .services__info-icon {
     width: 32px;
     height: 32px;
+    margin-right: 10px;
   }
 
   .services__info-text {
@@ -702,6 +722,7 @@
   .services__info-icon {
     width: 32px;
     height: 32px;
+    margin-right: 10px;
   }
 
   .services__info-text {
@@ -774,6 +795,7 @@
   .services__info-icon {
     width: 28px;
     height: 28px;
+    margin-right: 8px;
   }
 
   .services__info-text {
@@ -814,6 +836,7 @@
   .services__info-icon {
     width: 28px;
     height: 28px;
+    margin-right: 8px;
   }
 
   .services__info-text {

@@ -67,10 +67,12 @@ export default function Hero({
         <img 
           src={showLogos 
             ? "/images/BONTRUP PEARL (2).JPG"
-            : "/images/суда.JPG" 
+            : "/images/суда.JPG"
           }
           alt="" 
-          className="hero__bg" 
+          className="hero__bg"
+          loading="eager"
+          fetchPriority="high"
         />
         <div className="hero__overlay" />
       </div>

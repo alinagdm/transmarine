@@ -113,20 +113,52 @@ export default function Header() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      // Простой поиск по тексту на странице
-      const searchText = searchQuery.toLowerCase();
-      const elements = document.querySelectorAll('h1, h2, h3, p, a, span');
+      const searchText = searchQuery.toLowerCase().trim();
+      const words = searchText.split(/\s+/).filter(word => word.length > 2);
+      
+      // Поиск по тексту на странице
+      const elements = document.querySelectorAll('h1, h2, h3, h4, p, a, span, li, td, th, .hero__title, .services__card-title');
       
       let found = false;
+      let bestMatch: Element | null = null;
+      let bestScore = 0;
+      
       elements.forEach((el) => {
         const text = el.textContent?.toLowerCase() || '';
-        if (text.includes(searchText) && !found) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          found = true;
+        if (!text) return;
+        
+        // Проверяем точное совпадение
+        if (text.includes(searchText)) {
+          const score = text.indexOf(searchText);
+          if (score >= 0 && (!bestMatch || score < bestScore)) {
+            bestMatch = el;
+            bestScore = score;
+            found = true;
+          }
+        }
+        
+        // Проверяем по словам
+        if (words.length > 0) {
+          const matchCount = words.filter(word => text.includes(word)).length;
+          if (matchCount > 0 && matchCount / words.length >= 0.5) {
+            if (!bestMatch || matchCount > bestScore) {
+              bestMatch = el;
+              bestScore = matchCount;
+              found = true;
+            }
+          }
         }
       });
       
-      if (!found) {
+      if (found && bestMatch) {
+        const element = bestMatch as HTMLElement;
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Подсветка найденного текста
+        element.style.backgroundColor = 'rgba(255, 255, 0, 0.3)';
+        setTimeout(() => {
+          element.style.backgroundColor = '';
+        }, 2000);
+      } else {
         alert('Ничего не найдено');
       }
     }

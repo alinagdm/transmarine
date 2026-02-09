@@ -80,6 +80,8 @@
   width: 158px;
   height: 29.29px;
   object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .header__nav {

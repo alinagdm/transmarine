@@ -180,13 +180,15 @@
   }
 
   .hero__content {
-    padding: 0;
+    padding: 0 20px;
+    bottom: 60px;
   }
 
   .hero__bottom {
     padding: 0 20px;
     justify-content: center;
     position: relative;
+    margin-top: 20px;
   }
 
   .hero__scroll {
@@ -222,7 +224,8 @@
   }
 
   .hero__content {
-    margin-top: 150px;
+    padding: 0 16px;
+    bottom: 50px;
     padding: 0;
   }
 

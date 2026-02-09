@@ -293,6 +293,8 @@
 
   .footer__logos {
     margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
   }
 }
 
@@ -345,6 +347,8 @@
 
   .footer__logos {
     margin-top: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
     gap: 15px;
     flex-direction: column;
     align-items: flex-start;
