@@ -852,6 +852,8 @@
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .search-popup--open .search-popup__content {
@@ -971,8 +973,11 @@
   margin-top: 20px;
   max-height: 300px;
   overflow-y: auto;
+  overflow-x: hidden;
   border-top: 1px solid #e0e0e0;
   padding-top: 20px;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .search-popup__results::-webkit-scrollbar {
@@ -1034,6 +1039,9 @@
   font-weight: 600;
   color: #111;
   transition: color 0.3s ease;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .search-popup__result-path {
@@ -1042,6 +1050,9 @@
   font-weight: 400;
   color: rgba(17, 17, 17, 0.5);
   transition: color 0.3s ease;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .search-popup__no-results {
@@ -1132,6 +1143,9 @@
   line-height: 1.4;
   margin-top: 6px;
   margin-bottom: 0;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .search-popup__result-item mark {
