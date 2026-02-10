@@ -932,6 +932,9 @@
   font-weight: 400;
   outline: none;
   transition: all 0.3s ease;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  word-wrap: break-word;
 }
 
 .search-popup__input::placeholder {
