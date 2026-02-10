@@ -282,6 +282,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
 }
 
 .services__arrow:hover {
@@ -291,11 +292,11 @@
 }
 
 .services__arrow--left {
-  left: 0;
+  left: -80px;
 }
 
 .services__arrow--right {
-  right: 0;
+  right: -80px;
 }
 
 .services__arrow--right:hover {
