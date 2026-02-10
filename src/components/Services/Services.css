@@ -23,9 +23,7 @@
   margin-bottom: 92px;
   width: 100%;
   max-width: 100%;
-  overflow: visible;
-  padding: 0 80px;
-  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .services__slides {
@@ -293,11 +291,11 @@
 }
 
 .services__arrow--left {
-  left: -80px;
+  left: 0;
 }
 
 .services__arrow--right {
-  right: -80px;
+  right: 0;
 }
 
 .services__arrow--right:hover {
@@ -451,8 +449,6 @@
     top: auto;
     height: 500px;
     margin-bottom: 60px;
-    overflow: visible;
-    padding: 0 60px;
   }
 
   .services__card {
@@ -496,11 +492,11 @@
   }
 
   .services__arrow--left {
-    left: -20px;
+    left: 0;
   }
 
   .services__arrow--right {
-    right: -20px;
+    right: 0;
     left: auto;
   }
 
@@ -554,7 +550,7 @@
     margin-bottom: 40px;
     overflow: visible;
     touch-action: pan-x;
-    padding: 0 40px;
+    padding: 0 20px;
   }
 
   .services__slides {
