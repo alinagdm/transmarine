@@ -493,11 +493,11 @@
   }
 
   .services__arrow--left {
-    left: 0;
+    left: -60px;
   }
 
   .services__arrow--right {
-    right: 0;
+    right: -60px;
     left: auto;
   }
 
@@ -628,11 +628,11 @@
   }
 
   .services__arrow--left {
-    left: 0;
+    left: -20px;
   }
 
   .services__arrow--right {
-    right: 0;
+    right: -20px;
     left: auto;
   }
 
