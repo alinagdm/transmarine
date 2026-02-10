@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Header.css';
 import { usePortCalculation } from '../../contexts/PortCalculationContext';
+import { searchInIndex, highlightText, SearchResult } from '../../utils/searchIndex';
 
 // База данных страниц для поиска
 const pagesData = [
@@ -76,8 +77,9 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState<Array<{path: string; title: string; matches: number}>>([]);
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [foundOnCurrentPage, setFoundOnCurrentPage] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
   const [isMobileServicesSubmenuOpen, setIsMobileServicesSubmenuOpen] = useState(false);
   const [isMobileView, setIsMobileView] = useState(false);
   const menuStateRef = useRef({ isMenuOpen: false, isSearchOpen: false });
@@ -177,54 +179,40 @@ export default function Header() {
     setSearchQuery('');
   };
 
-  // Поиск по страницам и проверка текущей страницы
+  // AJAX поиск по индексу с debounce
   useEffect(() => {
     if (searchQuery.trim().length >= 2) {
-      const searchText = searchQuery.toLowerCase().trim();
-      const words = searchText.split(/\s+/).filter(word => word.length > 1);
+      setIsSearching(true);
       
-      // Проверка на текущей странице
-      const elements = document.querySelectorAll('h1, h2, h3, h4, p, a, span, li, td, th, .hero__title, .services__card-title');
-      let found = false;
-      elements.forEach((el) => {
-        if (el.textContent?.toLowerCase().includes(searchText)) {
-          found = true;
-        }
-      });
-      setFoundOnCurrentPage(found);
-      
-      // Поиск по другим страницам
-      const results = pagesData
-        .filter(page => page.path !== location.pathname) // Исключаем текущую страницу
-        .map(page => {
-          let matches = 0;
-          
-          // Поиск в ключевых словах
-          page.keywords.forEach(keyword => {
-            if (keyword.includes(searchText)) {
-              matches += 3; // Точное совпадение
-            } else if (words.some(word => keyword.includes(word))) {
-              matches += 1; // Частичное совпадение
-            }
-          });
-          
-          // Поиск в названии страницы
-          if (page.title.toLowerCase().includes(searchText)) {
-            matches += 5;
-          } else if (words.some(word => page.title.toLowerCase().includes(word))) {
-            matches += 2;
+      const timeoutId = setTimeout(() => {
+        const searchText = searchQuery.toLowerCase().trim();
+        
+        // Проверка на текущей странице
+        const elements = document.querySelectorAll('h1, h2, h3, h4, p, a, span, li, td, th, .hero__title, .services__card-title');
+        let found = false;
+        elements.forEach((el) => {
+          if (el.textContent?.toLowerCase().includes(searchText)) {
+            found = true;
           }
-          
-          return { ...page, matches };
-        })
-        .filter(page => page.matches > 0)
-        .sort((a, b) => b.matches - a.matches)
-        .slice(0, 5); // Топ 5 результатов
-      
-      setSearchResults(results);
+        });
+        setFoundOnCurrentPage(found);
+        
+        // AJAX поиск по индексу (симуляция асинхронного запроса)
+        setTimeout(() => {
+          const results = searchInIndex(searchQuery, location.pathname);
+          setSearchResults(results);
+          setIsSearching(false);
+        }, 100); // Небольшая задержка для имитации AJAX
+      }, 300); // Debounce 300ms
+
+      return () => {
+        clearTimeout(timeoutId);
+        setIsSearching(false);
+      };
     } else {
       setSearchResults([]);
       setFoundOnCurrentPage(false);
+      setIsSearching(false);
     }
   }, [searchQuery, location.pathname]);
 
