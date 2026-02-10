@@ -3,9 +3,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Header.css';
 import { usePortCalculation } from '../../contexts/PortCalculationContext';
 import { searchInIndex, highlightText, SearchResult } from '../../utils/searchIndex';
-
-// База данных страниц для поиска
-const pagesData = [
   {
     path: '/',
     title: 'Главная',
@@ -492,8 +489,16 @@ export default function Header() {
                 </div>
               )}
               
+              {/* Индикатор загрузки */}
+              {isSearching && searchQuery.trim().length >= 2 && (
+                <div className="search-popup__loading">
+                  <div className="search-popup__spinner"></div>
+                  <span>Поиск...</span>
+                </div>
+              )}
+
               {/* Результаты по другим страницам */}
-              {searchResults.length > 0 && (
+              {!isSearching && searchResults.length > 0 && (
                 <div className="search-popup__results">
                   <div className="search-popup__results-title">
                     {foundOnCurrentPage ? 'Также найдено на других страницах:' : 'Найдено на страницах:'}
@@ -505,25 +510,36 @@ export default function Header() {
                       className="search-popup__result-item"
                       onClick={() => handleResultClick(result.path)}
                     >
-                      <span className="search-popup__result-title">{result.title}</span>
-                      <span className="search-popup__result-path">{result.path}</span>
+                      <div className="search-popup__result-header">
+                        <span 
+                          className="search-popup__result-title"
+                          dangerouslySetInnerHTML={{ __html: highlightText(result.title, searchQuery) }}
+                        />
+                        {result.category && (
+                          <span className="search-popup__result-category">{result.category}</span>
+                        )}
+                      </div>
+                      <span 
+                        className="search-popup__result-path"
+                        dangerouslySetInnerHTML={{ __html: highlightText(result.path, searchQuery) }}
+                      />
+                      {result.content && (
+                        <p 
+                          className="search-popup__result-preview"
+                          dangerouslySetInnerHTML={{ __html: highlightText(result.content.substring(0, 100) + '...', searchQuery) }}
+                        />
+                      )}
                     </button>
                   ))}
                 </div>
               )}
               
-              {searchResults.length === 0 && !foundOnCurrentPage && searchQuery.trim().length >= 2 && (
+              {!isSearching && searchResults.length === 0 && !foundOnCurrentPage && searchQuery.trim().length >= 2 && (
                 <div className="search-popup__no-results">
                   Ничего не найдено. Попробуйте другой запрос.
                 </div>
               )}
             </>
-          )}
-          
-          {searchQuery.trim().length >= 2 && searchResults.length === 0 && (
-            <div className="search-popup__no-results">
-              Ничего не найдено. Попробуйте другой запрос.
-            </div>
           )}
         </div>
       </div>
