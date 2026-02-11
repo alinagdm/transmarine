@@ -23,7 +23,7 @@
   margin-bottom: 92px;
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
+  overflow: visible; /* стрелки вне контейнера (left/right -80px) не обрезаются */
 }
 
 .services__slides {
