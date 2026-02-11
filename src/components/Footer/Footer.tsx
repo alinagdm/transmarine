@@ -14,66 +14,68 @@ export default function Footer() {
       </div>
       
       <div className="footer__container">
-        {/* Логотип с белым фоном */}
-        <div className="footer__logo-bg"></div>
-        <img 
-          src="/images/tild3734-3037-4431-b833-306630373132__mask_group.svg" 
-          alt="TransMarine" 
-          className="footer__logo"
-          loading="lazy"
-        />
-        
-        {/* Контакты */}
-        <div className="footer__info">
-          <div className="footer__info-row">
-            <span className="footer__label">Адрес</span>
-            <span className="footer__value">Россия, 236003, Калининград, ул. Портовая 24</span>
+        {/* Ряд 1: логотип + меню */}
+        <div className="footer__row footer__row--1">
+          <div className="footer__logo-wrap">
+            <div className="footer__logo-bg"></div>
+            <img 
+              src="/images/tild3734-3037-4431-b833-306630373132__mask_group.svg" 
+              alt="TransMarine" 
+              className="footer__logo"
+              loading="lazy"
+            />
           </div>
-          <div className="footer__divider"></div>
-          <div className="footer__info-row footer__info-row--phones">
-            <span className="footer__label">Телефоны</span>
-            <span className="footer__value">+7 (4012) 632-256</span>
-            <span className="footer__value">+7 (4012) 632-120</span>
+          <nav className="footer__menu">
+            <Link to="/">Главная</Link>
+            <a href="#news">Новости</a>
+            <Link to="/services">Услуги</Link>
+            <Link to="/about">О компании</Link>
+            <Link to="/contacts">Контакты</Link>
+            <a href="#contact">Связаться</a>
+          </nav>
+        </div>
+
+        {/* Ряд 2: контакты + копирайт + логотипы */}
+        <div className="footer__row footer__row--2">
+          <div className="footer__info">
+            <div className="footer__info-row">
+              <span className="footer__label">Адрес</span>
+              <span className="footer__value">Россия, 236003, Калининград, ул. Портовая 24</span>
+            </div>
+            <div className="footer__divider"></div>
+            <div className="footer__info-row footer__info-row--phones">
+              <span className="footer__label">Телефоны</span>
+              <span className="footer__value">+7 (4012) 632-256</span>
+              <span className="footer__value">+7 (4012) 632-120</span>
+            </div>
+            <div className="footer__divider"></div>
+            <div className="footer__info-row">
+              <span className="footer__label">Почта</span>
+              <span className="footer__value">office@transmarine.ru</span>
+            </div>
           </div>
-          <div className="footer__divider"></div>
-          <div className="footer__info-row">
-            <span className="footer__label">Почта</span>
-            <span className="footer__value">office@transmarine.ru</span>
+          <div className="footer__copyright">© 2026 TransMarine.</div>
+          <div className="footer__logos">
+            <img 
+              src="/images/tild3663-3539-4861-b630-656133663233__bimco2016_logo-membe.svg" 
+              alt="BIMCO" 
+              className="footer__logo-bimco"
+              loading="lazy"
+            />
+            <img 
+              src="/images/tild6235-3665-4166-b039-383537363737__bvcer_sansqr-iso_900.svg" 
+              alt="ISO 9001" 
+              className="footer__logo-iso"
+              loading="lazy"
+            />
           </div>
         </div>
 
-        {/* Согласие на обработку данных */}
-        <a href="#privacy" className="footer__privacy">
-          Согласие на обработку персональных данных
-        </a>
-
-        {/* Меню */}
-        <nav className="footer__menu">
-          <Link to="/">Главная</Link>
-          <a href="#news">Новости</a>
-          <Link to="/services">Услуги</Link>
-          <Link to="/about">О компании</Link>
-          <Link to="/contacts">Контакты</Link>
-          <a href="#contact">Связаться</a>
-        </nav>
-
-        {/* Копирайт */}
-        <div className="footer__copyright">© 2026 TransMarine.</div>
-
-        {/* Логотипы */}
-        <div className="footer__logos">
-          <img 
-            src="/images/tild3663-3539-4861-b630-656133663233__bimco2016_logo-membe.svg" 
-            alt="BIMCO" 
-            className="footer__logo-bimco"
-            loading="lazy"
-          />
-          <img 
-            src="/images/tild6235-3665-4166-b039-383537363737__bvcer_sansqr-iso_900.svg" 
-            alt="ISO 9001" 
-            className="footer__logo-iso"
-            loading="lazy"
-          />
+        {/* Ряд 3: согласие на обработку данных */}
+        <div className="footer__row footer__row--3">
+          <a href="#privacy" className="footer__privacy">
+            Согласие на обработку персональных данных
+          </a>
         </div>
       </div>
     </footer>
