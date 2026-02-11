@@ -32,6 +32,10 @@ if (-not $scriptDir) { $scriptDir = Get-Location.Path }
 
 $files = @(
     @{ path = "src/App.css"; local = Join-Path $scriptDir "src\App.css" },
+    @{ path = "src/App.tsx"; local = Join-Path $scriptDir "src\App.tsx" },
+    @{ path = "src/components/Hero/Hero.css"; local = Join-Path $scriptDir "src\components\Hero\Hero.css" },
+    @{ path = "src/components/Footer/Footer.css"; local = Join-Path $scriptDir "src\components\Footer\Footer.css" },
+    @{ path = "src/components/Footer/Footer.tsx"; local = Join-Path $scriptDir "src\components\Footer\Footer.tsx" },
     @{ path = "src/components/Services/Services.css"; local = Join-Path $scriptDir "src\components\Services\Services.css" },
     @{ path = "src/components/History/History.css"; local = Join-Path $scriptDir "src\components\History\History.css" }
 )

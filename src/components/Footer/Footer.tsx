@@ -14,8 +14,8 @@ export default function Footer() {
       </div>
       
       <div className="footer__container">
-        {/* Ряд 1: логотип + меню */}
-        <div className="footer__row footer__row--1">
+        {/* Колонка 1: логотип, контакты, согласие */}
+        <div className="footer__col footer__col--1">
           <div className="footer__logo-wrap">
             <div className="footer__logo-bg"></div>
             <img 
@@ -25,18 +25,6 @@ export default function Footer() {
               loading="lazy"
             />
           </div>
-          <nav className="footer__menu">
-            <Link to="/">Главная</Link>
-            <a href="#news">Новости</a>
-            <Link to="/services">Услуги</Link>
-            <Link to="/about">О компании</Link>
-            <Link to="/contacts">Контакты</Link>
-            <a href="#contact">Связаться</a>
-          </nav>
-        </div>
-
-        {/* Ряд 2: контакты + копирайт + логотипы */}
-        <div className="footer__row footer__row--2">
           <div className="footer__info">
             <div className="footer__info-row">
               <span className="footer__label">Адрес</span>
@@ -54,6 +42,23 @@ export default function Footer() {
               <span className="footer__value">office@transmarine.ru</span>
             </div>
           </div>
+          <a href="#privacy" className="footer__privacy">
+            Согласие на обработку персональных данных
+          </a>
+        </div>
+
+        {/* Колонка 2: меню */}
+        <nav className="footer__col footer__col--2 footer__menu">
+          <Link to="/">Главная</Link>
+          <a href="#news">Новости</a>
+          <Link to="/services">Услуги</Link>
+          <Link to="/about">О компании</Link>
+          <Link to="/contacts">Контакты</Link>
+          <a href="#contact">Связаться</a>
+        </nav>
+
+        {/* Колонка 3: копирайт и логотипы */}
+        <div className="footer__col footer__col--3">
           <div className="footer__copyright">© 2026 TransMarine.</div>
           <div className="footer__logos">
             <img 
@@ -69,13 +74,6 @@ export default function Footer() {
               loading="lazy"
             />
           </div>
-        </div>
-
-        {/* Ряд 3: согласие на обработку данных */}
-        <div className="footer__row footer__row--3">
-          <a href="#privacy" className="footer__privacy">
-            Согласие на обработку персональных данных
-          </a>
         </div>
       </div>
     </footer>
