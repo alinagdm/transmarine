@@ -14,6 +14,25 @@
   margin: 0 auto;
   position: relative;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Все блоки внутри контейнера — на всю ширину и по центру */
+.app__container > * {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Внутренние контейнеры секций — адаптивные, по центру, на всю ширину */
+.app__container [class$="__container"] {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
 }
 
 .scroll-top {
