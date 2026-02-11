@@ -345,6 +345,7 @@
 .services__info {
   display: flex;
   gap: 20px;
+  justify-content: center;
 }
 
 .services__info-card {

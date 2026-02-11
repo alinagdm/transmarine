@@ -26,11 +26,13 @@
   box-sizing: border-box;
 }
 
-/* Внутренние контейнеры секций растягиваются на всю ширину и центрируются */
+/* Внутренние контейнеры секций — адаптивные, по центру, на всю ширину */
 .app__container [class$="__container"] {
   width: 100%;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
 }
 
 .scroll-top {
