@@ -20,7 +20,9 @@ export default function PeoplePage() {
         title="люди"
         showBreadcrumbs={true}
       />
-      <People people={peopleData} />
+      <div className="app__container">
+        <People people={peopleData} />
+      </div>
     </>
   );
 }

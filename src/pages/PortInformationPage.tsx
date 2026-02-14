@@ -4,6 +4,20 @@ import Weather from '../components/Weather/Weather';
 import './PortInformationPage.css';
 
 export default function PortInformationPage() {
+  return (
+    <>
+      <Hero 
+        title="ПОРТ КАЛИНИНГРАД"
+        showBreadcrumbs={true}
+      />
+      <div className="app__container">
+        <PortInformationPageContent />
+      </div>
+    </>
+  );
+}
+
+function PortInformationPageContent() {
   const firstAccordionItems = [
     { title: 'Прибытие', content: 'Информация о процедурах прибытия судов в порт...' },
     { title: 'Ограничения', content: 'Ограничения по размерам судов, осадке и другим параметрам...' },
@@ -28,10 +42,6 @@ export default function PortInformationPage() {
 
   return (
     <>
-      <Hero 
-        title="Информация о Калининградском порте"
-        showBreadcrumbs={true}
-      />
       <section className="port-information">
         <div className="port-information__container">
           <div className="port-information__content">

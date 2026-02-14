@@ -152,11 +152,13 @@ export default function ServiceDetailPage() {
         title={serviceData.title}
         showBreadcrumbs={true}
       />
-      <ServiceBenefits 
-        title={serviceData.title}
-        benefits={serviceData.benefits}
-      />
-      <Team members={serviceData.teamMembers} />
+      <div className="app__container">
+        <ServiceBenefits 
+          title={serviceData.title}
+          benefits={serviceData.benefits}
+        />
+        <Team members={serviceData.teamMembers} />
+      </div>
     </>
   );
 }

@@ -9,8 +9,10 @@ export default function AboutPage() {
         title="о нас"
         showBreadcrumbs={true}
       />
-      <AboutIntro />
-      <AboutMissionHistory />
+      <div className="app__container">
+        <AboutIntro />
+        <AboutMissionHistory />
+      </div>
     </>
   );
 }

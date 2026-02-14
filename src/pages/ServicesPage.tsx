@@ -8,7 +8,9 @@ export default function ServicesPage() {
         title="УСЛУГИ"
         showBreadcrumbs={true}
       />
-      <Services />
+      <div className="app__container">
+        <Services />
+      </div>
     </>
   );
 }

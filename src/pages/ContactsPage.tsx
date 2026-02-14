@@ -9,7 +9,8 @@ export default function ContactsPage() {
         title="Свяжитесь с нами"
         showBreadcrumbs={true}
       />
-      <section className="contacts">
+      <div className="app__container">
+        <section className="contacts">
         <div className="contacts__container">
           <div className="contacts__line"></div>
           <h2 className="contacts__title">контакты</h2>

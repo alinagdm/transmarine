@@ -103,15 +103,15 @@ function AppContent() {
             <Footer />
           </>
         } />
-        <Route path="/services" element={<><div className="app__container"><ServicesPage /></div><Footer /></>} />
-        <Route path="/services/:id" element={<><div className="app__container"><ServiceDetailPage /></div><Footer /></>} />
-        <Route path="/people" element={<><div className="app__container"><PeoplePage /></div><Footer /></>} />
-        <Route path="/about" element={<><div className="app__container"><AboutPage /></div><Footer /></>} />
-        <Route path="/history" element={<><div className="app__container"><HistoryPage /></div><Footer /></>} />
-        <Route path="/contacts" element={<><div className="app__container"><ContactsPage /></div><Footer /></>} />
-        <Route path="/port-information" element={<><div className="app__container"><PortInformationPage /></div><Footer /></>} />
-        <Route path="/ship-arrivals" element={<><div className="app__container"><ShipArrivalsPage /></div><Footer /></>} />
-        <Route path="/schedule" element={<><div className="app__container"><SchedulePage /></div><Footer /></>} />
+        <Route path="/services" element={<><ServicesPage /><Footer /></>} />
+        <Route path="/services/:id" element={<><ServiceDetailPage /><Footer /></>} />
+        <Route path="/people" element={<><PeoplePage /><Footer /></>} />
+        <Route path="/about" element={<><AboutPage /><Footer /></>} />
+        <Route path="/history" element={<><HistoryPage /><Footer /></>} />
+        <Route path="/contacts" element={<><ContactsPage /><Footer /></>} />
+        <Route path="/port-information" element={<><PortInformationPage /><Footer /></>} />
+        <Route path="/ship-arrivals" element={<><ShipArrivalsPage /><Footer /></>} />
+        <Route path="/schedule" element={<><SchedulePage /><Footer /></>} />
         <Route path="*" element={<><div className="app__container"><NotFoundPage /></div><Footer /></>} />
       </Routes>
       <ScrollToTopButton />
