@@ -19,7 +19,7 @@ export default function Footer() {
           <div className="footer__logo-wrap">
             <div className="footer__logo-bg"></div>
             <img 
-              src="/images/tild3734-3037-4431-b833-306630373132__mask_group.svg" 
+              src="/images/transmarine-logo.svg" 
               alt="TransMarine" 
               className="footer__logo"
               loading="lazy"

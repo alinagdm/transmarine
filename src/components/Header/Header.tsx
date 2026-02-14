@@ -244,7 +244,7 @@ export default function Header() {
               {isHistoryPage ? (
                 <img src="/images/frame-427-history.png" alt="TransMarine" loading="lazy" />
               ) : (
-                <img src="/images/tild3230-3835-4330-b439-353734393834__frame_427.svg" alt="TransMarine" loading="lazy" />
+                <img src="/images/transmarine-logo.svg" alt="TransMarine" loading="lazy" />
               )}
             </div>
           </Link>
