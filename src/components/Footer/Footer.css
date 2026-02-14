@@ -57,6 +57,7 @@
 .footer__col--3 {
   gap: 24px;
   align-items: flex-end;
+  margin-top: auto;
 }
 
 .footer__logo-wrap {
