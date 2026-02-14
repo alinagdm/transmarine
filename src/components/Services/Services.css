@@ -36,7 +36,6 @@
   perspective-origin: center center;
   touch-action: pan-y;
   overflow: hidden;
-  gap: 32px;
 }
 
 .services__card {
