@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom';
 import Hero from '../components/Hero/Hero';
 import ServiceBenefits from '../components/ServiceBenefits/ServiceBenefits';
 import Team from '../components/Team/Team';
-import Footer from '../components/Footer/Footer';
 
 const servicesData: Record<string, {
   title: string;
@@ -158,7 +157,6 @@ export default function ServiceDetailPage() {
         benefits={serviceData.benefits}
       />
       <Team members={serviceData.teamMembers} />
-      <Footer />
     </>
   );
 }

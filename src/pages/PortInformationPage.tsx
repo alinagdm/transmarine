@@ -1,5 +1,4 @@
 import Hero from '../components/Hero/Hero';
-import Footer from '../components/Footer/Footer';
 import Accordion from '../components/Accordion/Accordion';
 import Weather from '../components/Weather/Weather';
 import './PortInformationPage.css';
@@ -62,7 +61,6 @@ export default function PortInformationPage() {
         </div>
       </section>
       <Weather />
-      <Footer />
     </>
   );
 }

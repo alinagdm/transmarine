@@ -1,5 +1,4 @@
 import Hero from '../components/Hero/Hero';
-import Footer from '../components/Footer/Footer';
 import './SchedulePage.css';
 
 interface ScheduleRoute {
@@ -153,7 +152,6 @@ export default function SchedulePage() {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }

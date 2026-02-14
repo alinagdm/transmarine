@@ -116,7 +116,6 @@ export default function HistoryPage() {
           images={section.images}
         />
       ))}
-      <Footer />
     </>
   );
 }

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero/Hero';
-import Footer from '../components/Footer/Footer';
 import './ShipArrivalsPage.css';
 
 interface ShipArrival {
@@ -215,7 +214,6 @@ export default function ShipArrivalsPage() {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }

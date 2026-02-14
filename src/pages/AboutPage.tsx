@@ -1,7 +1,6 @@
 import Hero from '../components/Hero/Hero';
 import AboutIntro from '../components/AboutIntro/AboutIntro';
 import AboutMissionHistory from '../components/AboutMissionHistory/AboutMissionHistory';
-import Footer from '../components/Footer/Footer';
 
 export default function AboutPage() {
   return (
@@ -12,7 +11,6 @@ export default function AboutPage() {
       />
       <AboutIntro />
       <AboutMissionHistory />
-      <Footer />
     </>
   );
 }

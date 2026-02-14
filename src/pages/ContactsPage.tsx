@@ -1,5 +1,4 @@
 import Hero from '../components/Hero/Hero';
-import Footer from '../components/Footer/Footer';
 import './ContactsPage.css';
 
 export default function ContactsPage() {
@@ -94,7 +93,6 @@ export default function ContactsPage() {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }
