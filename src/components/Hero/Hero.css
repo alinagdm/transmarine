@@ -1,8 +1,12 @@
+/* Всегда 100% ширины экрана на любом разрешении */
 .hero {
   height: 100vh;
   min-height: 860px;
   position: relative;
-  width: 100%;
+  width: 100vw;
+  max-width: 100%;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   overflow: hidden;
   animation: fadeIn 0.8s ease-out;
 }

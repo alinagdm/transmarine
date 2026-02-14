@@ -74,16 +74,6 @@ function ScrollToTopButton() {
   );
 }
 
-function HomePage() {
-  return (
-    <>
-      <Hero showLogos={true} />
-      <Services />
-      <History />
-      <Footer />
-    </>
-  );
-}
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -103,17 +93,26 @@ function AppContent() {
       <ScrollToTop />
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/services/:id" element={<ServiceDetailPage />} />
-        <Route path="/people" element={<PeoplePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/history" element={<HistoryPage />} />
-            <Route path="/contacts" element={<ContactsPage />} />
-            <Route path="/port-information" element={<PortInformationPage />} />
-            <Route path="/ship-arrivals" element={<ShipArrivalsPage />} />
-            <Route path="/schedule" element={<SchedulePage />} />
-            <Route path="*" element={<NotFoundPage />} />
+        <Route path="/" element={
+          <>
+            <Hero showLogos={true} />
+            <div className="app__container">
+              <Services />
+              <History />
+            </div>
+            <Footer />
+          </>
+        } />
+        <Route path="/services" element={<><div className="app__container"><ServicesPage /></div><Footer /></>} />
+        <Route path="/services/:id" element={<><div className="app__container"><ServiceDetailPage /></div><Footer /></>} />
+        <Route path="/people" element={<><div className="app__container"><PeoplePage /></div><Footer /></>} />
+        <Route path="/about" element={<><div className="app__container"><AboutPage /></div><Footer /></>} />
+        <Route path="/history" element={<><div className="app__container"><HistoryPage /></div><Footer /></>} />
+        <Route path="/contacts" element={<><div className="app__container"><ContactsPage /></div><Footer /></>} />
+        <Route path="/port-information" element={<><div className="app__container"><PortInformationPage /></div><Footer /></>} />
+        <Route path="/ship-arrivals" element={<><div className="app__container"><ShipArrivalsPage /></div><Footer /></>} />
+        <Route path="/schedule" element={<><div className="app__container"><SchedulePage /></div><Footer /></>} />
+        <Route path="*" element={<div className="app__container"><NotFoundPage /></div>} />
       </Routes>
       <ScrollToTopButton />
       <PortCalculationForm isOpen={isOpen} onClose={closeForm} />
@@ -126,9 +125,7 @@ function App() {
     <BrowserRouter>
       <PortCalculationProvider>
         <div className="app">
-          <div className="app__container">
-            <AppContent />
-          </div>
+          <AppContent />
         </div>
       </PortCalculationProvider>
     </BrowserRouter>

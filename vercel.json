@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "devCommand": "npm run dev",
@@ -9,5 +10,9 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
+=======
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+>>>>>>> ccb2d39ac3f2c33baf69fb22562a4bdaf6ab6650
   ]
 }
