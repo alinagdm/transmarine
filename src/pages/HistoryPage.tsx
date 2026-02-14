@@ -1,5 +1,4 @@
 import HistoryTimeline from '../components/HistoryTimeline/HistoryTimeline';
-import Footer from '../components/Footer/Footer';
 import Breadcrumbs from '../components/Breadcrumbs/Breadcrumbs';
 import './HistoryPage.css';
 
