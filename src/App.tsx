@@ -112,7 +112,7 @@ function AppContent() {
         <Route path="/port-information" element={<><div className="app__container"><PortInformationPage /></div><Footer /></>} />
         <Route path="/ship-arrivals" element={<><div className="app__container"><ShipArrivalsPage /></div><Footer /></>} />
         <Route path="/schedule" element={<><div className="app__container"><SchedulePage /></div><Footer /></>} />
-        <Route path="*" element={<div className="app__container"><NotFoundPage /></div>} />
+        <Route path="*" element={<><div className="app__container"><NotFoundPage /></div><Footer /></>} />
       </Routes>
       <ScrollToTopButton />
       <PortCalculationForm isOpen={isOpen} onClose={closeForm} />
