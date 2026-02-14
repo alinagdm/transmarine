@@ -32,10 +32,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 2000px;
+  perspective: none;
   perspective-origin: center center;
   touch-action: pan-y;
   overflow: hidden;
+  gap: 32px;
 }
 
 .services__card {
@@ -48,7 +49,7 @@
   overflow: hidden;
   transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 10px #0000004d;
   text-decoration: none;
   color: inherit;
   will-change: transform;
@@ -57,7 +58,7 @@
 .services__card--left {
   width: 364px;
   height: 544px;
-  transform: translateX(-420px) translateZ(-300px) scale(0.88) rotateY(12deg);
+  transform: translateX(-410px) translateZ(-300px) scale(0.88) rotateY(12deg);
   opacity: 0.7;
   z-index: 1;
   filter: brightness(0.8) blur(0.5px);
@@ -69,14 +70,14 @@
   transform: translateX(0) translateZ(0) scale(1) rotateY(0deg);
   opacity: 1;
   z-index: 3;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 10px #0000004d;
   filter: brightness(1) blur(0);
 }
 
 .services__card--right {
   width: 364px;
   height: 544px;
-  transform: translateX(420px) translateZ(-300px) scale(0.88) rotateY(-12deg);
+  transform: translateX(410px) translateZ(-300px) scale(0.88) rotateY(-12deg);
   opacity: 0.7;
   z-index: 1;
   filter: brightness(0.8) blur(0.5px);
@@ -124,18 +125,18 @@
 
 .services__card--left:hover,
 .services__card--right:hover {
-  transform: translateX(-420px) translateZ(-250px) scale(0.9) rotateY(10deg);
+  transform: translateX(-410px) translateZ(-250px) scale(0.9) rotateY(10deg);
   opacity: 0.85;
   filter: brightness(0.85) blur(0.3px);
 }
 
 .services__card--right:hover {
-  transform: translateX(420px) translateZ(-250px) scale(0.9) rotateY(-10deg);
+  transform: translateX(410px) translateZ(-250px) scale(0.9) rotateY(-10deg);
 }
 
 .services__card--center:hover {
   transform: translateX(0) translateZ(20px) scale(1.02) rotateY(0deg);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 10px #0000004d;
 }
 
 .services__card-content {
@@ -353,7 +354,7 @@
   align-items: center;
   gap: 20px;
   padding: 18px 32px;
-  width: 590px;
+  width: 50%;
   height: 94px;
   max-width: 100%;
   border: 1px solid rgba(7, 33, 104, 0.6);
