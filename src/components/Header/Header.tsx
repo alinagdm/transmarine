@@ -278,6 +278,16 @@ export default function Header() {
               </svg>
             </button>
             <button 
+              className="header__lang"
+              aria-label="Выбор языка"
+              onClick={() => {}}
+            >
+              <span>RU</span>
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <button 
               className={`header__menu ${isMenuOpen ? 'header__menu--active' : ''}`}
               onClick={toggleMenu}
               aria-label="Меню"

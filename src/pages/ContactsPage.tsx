@@ -94,6 +94,7 @@ export default function ContactsPage() {
           </div>
         </div>
       </section>
+      </div>
     </>
   );
 }
