@@ -16,8 +16,8 @@ export default function HistoryPage() {
         </>
       ),
       images: [
-        { width: 320, height: 442, left: 630, top: 60, src: '/images/серт.jpg' },
-        { width: 350, height: 442, left: 970, top: 60, src: '/images/Spore.png' },
+        { width: 320, height: 442, left: 630, top: 60, src: '/images/Spore.png' },
+        { width: 350, height: 442, left: 970, top: 60, src: '/images/серт.jpg' },
       ],
       height: 562,
     },
@@ -34,13 +34,14 @@ export default function HistoryPage() {
         </>
       ),
       images: [
-        { width: 514, height: 255, left: 802, top: 100, src: '/images/telex.png' },
-        { width: 515, height: 216, left: 802, top: 375, src: '/images/main.png' },
+        { src: '/images/telex.png' },
+        { src: '/images/main.png' },
       ],
       height: 591,
+      layout: 'column' as const,
     },
     {
-      year: <>1990-<span className="history-timeline__year-lower">е</span></>,
+      year: <>1990-<span className="history-timeline__year-suffix">е</span></>,
       text: (
         <>
           Период активного развития <br/>
@@ -50,9 +51,10 @@ export default function HistoryPage() {
         </>
       ),
       images: [
-        { width: 659, height: 416, left: 661, top: 106, src: '/images/POL-America.jpg' },
+        { src: '/images/history-1990s-2.jpeg' },
       ],
-      height: 562,
+      height: 400,
+      layout: 'wide' as const,
     },
     {
       year: '1995',
@@ -68,10 +70,11 @@ export default function HistoryPage() {
         </>
       ),
       images: [
-        { width: 430, height: 289, left: 630, top: 103, src: '/images/main2.png' },
-        { width: 240, height: 322, left: 1080, top: 103, src: '/images/bbb.jpg' },
+        { src: '/images/main2.png' },
+        { src: '/images/bbb.jpg' },
       ],
       height: 678,
+      layout: 'row' as const,
     },
     {
       year: '1996',
@@ -105,14 +108,22 @@ export default function HistoryPage() {
           ООО «ТрансМарин» — агент регулярной линии Atlantic RoRo (Санкт-Петербург, Калининград / Восточное побережье США).
         </>
       ),
-      images: [],
-      height: 300,
+      images: [
+        { src: '/images/history-knowledge.png' },
+        { src: '/images/history-1997-2.jpeg' },
+      ],
+      height: 562,
+      layout: 'column' as const,
     },
     {
       year: '1998',
       text: 'Рост экспорта, вызванный девальвацией рубля и геополитическими событиями конца 1990-х, устойчивый рост объемов перевалки наших ключевых грузов — минеральных удобрений, бумаги, фанеры, металлов.',
-      images: [],
-      height: 300,
+      images: [
+        { src: '/images/history-1998-1.jpeg' },
+        { src: '/images/history-1998-2.jpeg' },
+      ],
+      height: 562,
+      layout: 'column' as const,
     },
     {
       year: (
@@ -121,20 +132,28 @@ export default function HistoryPage() {
         </>
       ),
       text: 'Запуск и успешная работа регулярной линии TransMarine Line между Калининградом и портами Дании и Германии в течение 10 лет стали логичным развитием нашей экспертизы и желанием предлагать клиентам комплексные решения.',
-      images: [],
-      height: 300,
+      images: [
+        { src: '/images/history-2003-1.jpeg' },
+        { src: '/images/history-2003-2.jpeg' },
+      ],
+      height: 562,
+      layout: 'column' as const,
     },
     {
       year: '2006',
       text: 'Рекордный показатель в 498 судозаходов за год и доля рынка более 50% среди независимых агентов в порту Калининград наглядно подтвердили наше операционное превосходство и надёжность.',
-      images: [],
-      height: 300,
+      images: [
+        { width: 659, height: 416, left: 661, top: 106, src: '/images/history-2003-2.jpeg' },
+      ],
+      height: 562,
     },
     {
-      year: '2010-е',
+      year: <>2010-<span className="history-timeline__year-suffix">е</span></>,
       text: 'Наша надёжность и экспертиза открыли нам двери в мир логистического обеспечения крупнейших региональных и международных инфраструктурных проектов.',
-      images: [],
-      height: 300,
+      images: [
+        { width: 659, height: 416, left: 661, top: 106, src: '/images/history-2006.jpeg' },
+      ],
+      height: 562,
     },
     {
       year: (
@@ -143,8 +162,10 @@ export default function HistoryPage() {
         </>
       ),
       text: 'Став агентами каботажной линии «СМП БалтЭкспресс», мы направили наш многолетний опыт на обеспечение бесперебойного снабжения региона. В новых экономических условиях мы остаёмся надёжным звеном, связывающим промышленность Калининграда с материковой Россией.',
-      images: [],
-      height: 300,
+      images: [
+        { width: 659, height: 416, left: 661, top: 106, src: '/images/Линия.JPG' },
+      ],
+      height: 562,
     },
   ];
 
@@ -162,6 +183,8 @@ export default function HistoryPage() {
           year={section.year}
           text={section.text}
           images={section.images}
+          compact={(section as { compact?: boolean }).compact}
+          layout={(section as { layout?: 'column' | 'row' | 'wide' }).layout}
         />
       ))}
     </>
