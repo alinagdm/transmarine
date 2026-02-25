@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero/Hero';
-import Footer from '../components/Footer/Footer';
 import './ShipArrivalsPage.css';
 
 interface ShipArrival {
@@ -110,7 +109,8 @@ export default function ShipArrivalsPage() {
         title="Судозаходы Калининград"
         showBreadcrumbs={true}
       />
-      <section className="ship-arrivals">
+      <div className="app__container">
+        <section className="ship-arrivals">
         <div className="ship-arrivals__container">
           <div className="ship-arrivals__header">
             <h2 className="ship-arrivals__title">Расписание судозаходов</h2>
@@ -215,7 +215,7 @@ export default function ShipArrivalsPage() {
           </div>
         </div>
       </section>
-      <Footer />
+      </div>
     </>
   );
 }

@@ -1,5 +1,4 @@
 import Hero from '../components/Hero/Hero';
-import Footer from '../components/Footer/Footer';
 import './ContactsPage.css';
 
 export default function ContactsPage() {
@@ -10,7 +9,8 @@ export default function ContactsPage() {
         title="Свяжитесь с нами"
         showBreadcrumbs={true}
       />
-      <section className="contacts">
+      <div className="app__container">
+        <section className="contacts">
         <div className="contacts__container">
           <div className="contacts__line"></div>
           <h2 className="contacts__title">контакты</h2>
@@ -94,7 +94,7 @@ export default function ContactsPage() {
           </div>
         </div>
       </section>
-      <Footer />
+      </div>
     </>
   );
 }

@@ -1,5 +1,4 @@
 import Hero from '../components/Hero/Hero';
-import Footer from '../components/Footer/Footer';
 import './SchedulePage.css';
 
 interface ScheduleRoute {
@@ -63,7 +62,8 @@ export default function SchedulePage() {
         title="Расписание линий"
         showBreadcrumbs={true}
       />
-      <section className="schedule">
+      <div className="app__container">
+        <section className="schedule">
         <div className="schedule__container">
           <div className="schedule__header">
             <h2 className="schedule__title">Расписание судоходной линии</h2>
@@ -153,7 +153,7 @@ export default function SchedulePage() {
           </div>
         </div>
       </section>
-      <Footer />
+      </div>
     </>
   );
 }

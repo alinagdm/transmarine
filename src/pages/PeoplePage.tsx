@@ -1,6 +1,5 @@
 import Hero from '../components/Hero/Hero';
 import People from '../components/People/People';
-import Footer from '../components/Footer/Footer';
 
 // Моковые данные для команды
 const peopleData = [
@@ -21,8 +20,9 @@ export default function PeoplePage() {
         title="люди"
         showBreadcrumbs={true}
       />
-      <People people={peopleData} />
-      <Footer />
+      <div className="app__container">
+        <People people={peopleData} />
+      </div>
     </>
   );
 }

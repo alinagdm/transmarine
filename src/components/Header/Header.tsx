@@ -244,7 +244,7 @@ export default function Header() {
               {isHistoryPage ? (
                 <img src="/images/frame-427-history.png" alt="TransMarine" loading="lazy" />
               ) : (
-                <img src="/images/tild3230-3835-4330-b439-353734393834__frame_427.svg" alt="TransMarine" loading="lazy" />
+                <img src="/images/transmarine-logo.svg" alt="TransMarine" loading="lazy" />
               )}
             </div>
           </Link>
@@ -275,6 +275,16 @@ export default function Header() {
             >
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M19 19L13.0001 13M15 8C15 11.866 11.866 15 8 15C4.134 15 1 11.866 1 8C1 4.134 4.134 1 8 1C11.866 1 15 4.134 15 8Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <button 
+              className="header__lang"
+              aria-label="Выбор языка"
+              onClick={() => {}}
+            >
+              <span>RU</span>
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
             <button 

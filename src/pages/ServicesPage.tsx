@@ -1,6 +1,5 @@
 import Hero from '../components/Hero/Hero';
 import Services from '../components/Services/Services';
-import Footer from '../components/Footer/Footer';
 
 export default function ServicesPage() {
   return (
@@ -9,8 +8,9 @@ export default function ServicesPage() {
         title="УСЛУГИ"
         showBreadcrumbs={true}
       />
-      <Services />
-      <Footer />
+      <div className="app__container">
+        <Services />
+      </div>
     </>
   );
 }

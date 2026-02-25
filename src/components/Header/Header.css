@@ -33,6 +33,14 @@
   stroke: #111111;
 }
 
+.header--history .header__lang {
+  color: #111111;
+}
+
+.header--history .header__lang svg path {
+  stroke: #111111;
+}
+
 .header--history .header__menu span {
   background: #111111;
 }
@@ -231,6 +239,7 @@
 }
 
 .header__search,
+.header__lang,
 .header__menu {
   background: none;
   border: none;
@@ -240,8 +249,25 @@
 }
 
 .header__search:hover,
+.header__lang:hover,
 .header__menu:hover {
   opacity: 0.7;
+}
+
+.header__lang {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.header__lang svg {
+  width: 12px;
+  height: 8px;
 }
 
 .header__search {

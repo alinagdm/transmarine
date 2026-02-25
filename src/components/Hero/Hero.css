@@ -46,6 +46,12 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero__bg-wrapper:hover .hero__overlay {
+  opacity: 1;
 }
 
 .hero__content {
