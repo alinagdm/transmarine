@@ -41,7 +41,7 @@ export default function HistoryPage() {
       height: 591,
     },
     {
-      year: '1990-е',
+      year: <>1990-<span className="history-timeline__year-lower">е</span></>,
       text: (
         <>
           Период активного развития <br/>
