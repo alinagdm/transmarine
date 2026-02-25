@@ -30,7 +30,9 @@
 .history-page .breadcrumbs__separator {
   color: rgba(0, 0, 0, 0.4);
 }
-
+.history-timeline__year-suffix {
+  text-transform: lowercase;
+}
 .history-page__title {
   font-family: 'Caslon', 'Times New Roman', serif;
   font-size: 38px;
