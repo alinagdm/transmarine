@@ -41,7 +41,11 @@ export default function HistoryPage() {
       layout: 'column' as const,
     },
     {
-      year: <>1990-<span className="history-timeline__year-suffix">е</span></>,
+       year:(
+        <>
+          1900 <br/>e
+        </>
+      ),
       text: (
         <>
           Период активного развития <br/>
@@ -148,7 +152,11 @@ export default function HistoryPage() {
       height: 562,
     },
     {
-      year: <>2010-<span className="history-timeline__year-suffix">е</span></>,
+       year:(
+        <>
+          2010-<br/>e
+        </>
+      ),
       text: 'Наша надёжность и экспертиза открыли нам двери в мир логистического обеспечения крупнейших региональных и международных инфраструктурных проектов.',
       images: [
         { width: 659, height: 416, left: 661, top: 106, src: '/images/history-2006.jpeg' },
