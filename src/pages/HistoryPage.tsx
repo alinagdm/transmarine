@@ -40,7 +40,7 @@ export default function HistoryPage() {
       height: 591,
     },
     {
-      year: '1990-е',
+      year: <>1990-<span className="history-timeline__year-lower">е</span></>,
       text: (
         <>
           Период активного развития <br/>
@@ -131,7 +131,7 @@ export default function HistoryPage() {
       height: 300,
     },
     {
-      year: '2010-е',
+      year: <>2010-<span className="history-timeline__year-lower">е</span></>,
       text: 'Наша надёжность и экспертиза открыли нам двери в мир логистического обеспечения крупнейших региональных и международных инфраструктурных проектов.',
       images: [],
       height: 300,

@@ -31,6 +31,10 @@
   line-height: 1.2;
 }
 
+.history-timeline__year-lower {
+  text-transform: lowercase;
+}
+
 .history-timeline__text {
   font-family: 'Inter', sans-serif;
   font-size: 18px;
