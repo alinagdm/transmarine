@@ -4,17 +4,20 @@ interface HistoryTimelineProps {
   year: string | React.ReactNode;
   text: string | React.ReactNode;
   images: Array<{
-    width: number;
-    height: number;
-    left: number;
-    top: number;
+    width?: number;
+    height?: number;
+    left?: number;
+    top?: number;
     src?: string;
   }>;
+  compact?: boolean;
+  layout?: 'column' | 'row' | 'wide';
 }
 
-export default function HistoryTimeline({ year, text, images }: HistoryTimelineProps) {
+export default function HistoryTimeline({ year, text, images, compact, layout }: HistoryTimelineProps) {
+  const layoutClass = layout ? `history-timeline--${layout}` : '';
   return (
-    <section className="history-timeline">
+    <section className={`history-timeline ${compact ? 'history-timeline--compact' : ''} ${layoutClass}`}>
       <div className="history-timeline__container">
         <div className="history-timeline__content">
           <h2 className="history-timeline__year">{year}</h2>
